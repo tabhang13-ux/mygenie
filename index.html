@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genie Workforce | Weekend Jobs & Event Helper</title>
+    <meta name="description" content="Genie Workforce connects events with professional staff across India. Find flexible, weekend, and part-time event jobs in Pune.">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Genie Workforce | Weekend Jobs & Event Helper">
+    <meta property="og:description" content="Connecting events with professional staff across India.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="url(#paint0_linear)" />
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="12" y1="2" x2="12" y2="21.02" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFD700" />
+                            <stop offset="1" stop-color="#FF8C00" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">Genie<span class="highlight">Workforce</span></span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">🌙</button>
+                    <button id="login-btn" class="btn btn-outline">Login (Admin)</button>
+                    <button id="signup-btn" class="btn btn-primary">Sign Up</button>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge">🔥 Premier Event Staffing</div>
+                    <h1 class="hero-title">Connecting Events with <span class="highlight">Professional Staff</span> across India.</h1>
+                    <p class="hero-description">Genie Workforce directly employs individuals for temporary jobs in Pune, including short-term and event-based assignments. Secure your next weekend job today.</p>
+                    <div class="hero-btns">
+                        <a href="#how-it-works" class="btn btn-primary btn-large">Learn More</a>
+                        <a href="#" class="btn btn-secondary btn-large">Hire Genies</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="glass-card image-card">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event professional working" class="hero-img" loading="lazy">
+                        <div class="floating-badge top-right">
+                            <span class="star">⭐</span>
+                            <div>
+                                <strong>4.9/5</strong>
+                                <small>Genie Rating</small>
+                            </div>
+                        </div>
+                        <div class="floating-badge bottom-left">
+                            <span class="check">✅</span>
+                            <div>
+                                <strong>10k+</strong>
+                                <small>Jobs Completed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Earn While You Learn Banner -->
+        <section class="banner-section">
+            <div class="banner-overlay"></div>
+            <div class="container banner-content">
+                <h2 class="banner-title">Earn While You Learn</h2>
+                <button id="find-wishes-btn" class="btn btn-yellow btn-large">Find a Wish</button>
+            </div>
+        </section>
+
+        <!-- Hot Wishes Section -->
+        <section class="hot-wishes section" id="hot-wishes">
+            <div class="container">
+                <div class="section-header" style="text-align: left; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h2 class="section-title">Hot <span class="highlight">Wishes</span></h2>
+                        <p class="wish-counter" id="wish-counter">Loading wishes...</p>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="search-wishes" placeholder="Search by title or location...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+                
+                <div class="wishes-container" id="wishes-container">
+                    <!-- Skeletons will show here initially, then real wishes -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Post A Wish Form (Admin Only) -->
+        <section class="post-wish section" id="post-wish-section" style="display:none; background: var(--surface-alt);">
+            <div class="container">
+                <div class="form-container glass-card" style="border-top: 4px solid var(--primary);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+                        <h2 style="margin:0;">Post a New Wish <span style="font-size:0.5em; background:var(--primary); color:white; padding: 2px 6px; border-radius:4px; vertical-align:middle;">ADMIN</span></h2>
+                    </div>
+                    <form id="post-wish-form">
+                        <div class="form-group">
+                            <input type="text" id="wish-title" placeholder="Event Title" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="wish-location" placeholder="Location" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="wish-role" placeholder="Role (e.g. 100 Boys/Girls)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="wish-date" placeholder="Date (DD-MM-YYYY)" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="wish-payment" placeholder="Payment Amount" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%; background:#22c55e;">Post Wish</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works section" id="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">How It <span class="highlight">Works</span></h2>
+                    <p class="section-subtitle">Our process is designed to ensure transparency, punctuality, and smooth coordination.</p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-icon">1</div>
+                        <h3>Find Work</h3>
+                        <p>Browse all event helper and part-time job opportunities, including venue, date, time, and dress code details.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-icon">2</div>
+                        <h3>Get Selected</h3>
+                        <p>Shortlisted Genies receive a verification call based on profile completion, skills, and reliability.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-icon">3</div>
+                        <h3>Join WhatsApp Group</h3>
+                        <p>Selected Genies are added to a dedicated group for real-time coordination before and during the event.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-icon">4</div>
+                        <h3>Task Prep & Check-in</h3>
+                        <p>Check in via the app 1 hour before and reach the venue 30 mins early. Follow coordinator instructions.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-icon">5</div>
+                        <h3>During the Task</h3>
+                        <p>Maintain discipline, follow guidelines, and perform responsibilities. Professionalism increases future eligibility.</p>
+                    </div>
+                    <div class="process-card">
+                        <div class="process-icon">6</div>
+                        <h3>Check-out & Payment</h3>
+                        <p>Check out via the app. Payment is securely processed within 7 days through Cashfree via bank or UPI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked <span class="highlight">Questions</span></h2>
+                    <p class="section-subtitle">Got questions? We've got answers about working with Genie Workforce.</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How much can I earn from weekend event jobs in Pune?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Earnings depend on the role and duration. Short weekend jobs in Pune can pay for a few hours of work, while longer event staff assignments may offer higher pay. Skilled tasks like stall management or promotional staff generally provide better payouts.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Are there opportunities for temporary event staff in Pune besides weekends?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we have opportunities throughout the week depending on the events scheduled, including exhibitions, marathons, and corporate events.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I apply for event staff jobs in Pune?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Simply sign up on our website or app, complete your profile, browse available tasks, and apply for the ones that fit your schedule.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do I need prior experience for weekend part-time jobs?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No prior experience is necessary for many helper roles. We welcome students and freshers. However, specific skilled roles may require some background experience.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How and when will I receive my payment?</h3>
+                            <span class="faq-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Payments are processed within 7 days of task completion through Cashfree and can be redeemed directly to your bank account or via UPI.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section">
+            <div class="container">
+                <div class="cta-box glass-card">
+                    <h2>Ready to start your journey?</h2>
+                    <p>Genieworkforce Pune mein part-time jobs ke zariye extra income kamane ke flexible mauke deta hai.</p>
+                    <a href="#" class="btn btn-primary btn-large">Join Genie Workforce Now</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Map Section -->
+        <section class="map-section section" id="map" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                    <h2 class="section-title">Our <span class="highlight">Location</span></h2>
+                    <p class="section-subtitle">Make A Wish Genie Will Accomplish! Pashan Sus Road, Sr. No. 217, Sus Ln, near Mumbai-Pune Bypass, Highway, Pune, Maharashtra 411021</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.261271638217!2d73.740889!3d18.5622359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bc86a603c6a5%3A0x6b63f53af26ea51e!2sSunny&#39;s%20World!5e0!3m2!1sen!2sin!4v1713361514742!5m2!1sen!2sin" width="100%" height="450" style="border:0; border-radius: 1rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col brand-col">
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-text" style="color:white;">Genie<span class="highlight">Workforce</span></span>
+                </a>
+                <p>Connecting events with professional staff across India. Your trusted partner for weekend jobs & event staffing.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact">
+                    <li>📍 Pashan Sus Road, Sr. No. 217, Sus Ln, near Mumbai-Pune Bypass, Highway, Pune, Maharashtra 411021</li>
+                    <li>📧 <a href="mailto:genieworkforce@gmail.com">genieworkforce@gmail.com</a></li>
+                    <li>📞 <a href="https://wa.me/918669453375" target="_blank">+91 8669453375</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 Genieworkforce. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-login">&times;</span>
+            <h2 style="text-align:center; margin-bottom:1.5rem;">Login to Admin</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom: 1.5rem; font-size: 0.875rem;">(Sign in to post and delete wishes)</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" id="login-username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; background:var(--primary);">Login as Admin</button>
+            </form>
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="margin-bottom: 1rem; color:var(--text-muted);">Or join our monthly plan</p>
+                <button id="open-subscription" class="btn btn-secondary" style="width:100%;">Subscription 99rs/month</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscription Modal -->
+    <div class="modal-overlay" id="subscription-modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="modal-close" id="close-subscription">&times;</span>
+            <h2 style="margin-bottom:1rem;">Subscription</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-muted);">Scan the QR code to pay 99rs per month</p>
+            <div class="qr-container" style="background:#111; padding: 1rem; border-radius: 10px; display:inline-block; margin-bottom:1.5rem; border: 4px solid var(--primary);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QR Code" style="width: 200px; height: 200px; background: white; padding: 10px; border-radius: 5px;">
+                <div style="color:white; margin-top: 10px; font-weight:bold; font-size: 1.25rem;">पे</div>
+            </div>
+            <button id="done-subscription" class="btn btn-primary" style="width:100%;">Done</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Redirect Modal -->
+    <div class="modal-overlay" id="whatsapp-modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="modal-close" id="close-whatsapp">&times;</span>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">💬</div>
+            <h2 style="margin-bottom:1rem;">Join Our WhatsApp Group!</h2>
+            <p style="margin-bottom:1.5rem; color:var(--text-muted);">To proceed with this wish and get real-time updates, please join our official WhatsApp group.</p>
+            <a href="https://chat.whatsapp.com/HD8u974mB4TLuOBROBMsWw" target="_blank" id="join-whatsapp-btn" class="btn btn-primary" style="width:100%; background: #25D366; color: white; display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 1.125rem;">
+                Join WhatsApp Group
+            </a>
+        </div>
+    </div>
+
+    <!-- Volunteer Sign In Modal -->
+    <div class="modal-overlay" id="volunteer-modal">
+        <div class="modal-content">
+            <span class="modal-close" id="close-volunteer">&times;</span>
+            <h2 style="text-align:center; margin-bottom:1.5rem;">Volunteer Sign In</h2>
+            <p style="text-align:center; color:var(--text-muted); margin-bottom: 1.5rem; font-size: 0.875rem;">(Sign in as a student to apply for wishes)</p>
+            <form id="volunteer-form">
+                <div class="form-group">
+                    <input type="text" id="vol-name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="vol-mobile" placeholder="Mobile Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="vol-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; background:var(--primary);">Sign in as a student</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">↑</button>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+</html>
